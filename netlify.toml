@@ -10,11 +10,6 @@
 
 # Netlify CMS redirect (if needed)
 [[redirects]]
-  from = "/"
-  to = "/cyco-pose-vol2-ethereal.html"
-  status = 200
-
-[[redirects]]
   from = "/admin"
   to = "/index.html"
   status = 200
