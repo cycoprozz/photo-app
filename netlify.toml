@@ -8,6 +8,12 @@
 [functions]
   node_bundler = "esbuild"
 
+# Redirect root to CyCO POSE page
+[[redirects]]
+  from = "/"
+  to = "/cyco-pose-vol2-ethereal.html"
+  status = 302
+
 # Netlify CMS redirect (if needed)
 [[redirects]]
   from = "/admin"
