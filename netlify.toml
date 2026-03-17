@@ -1,0 +1,32 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[functions]
+  node_bundler = "esbuild"
+
+# Netlify CMS redirect (if needed)
+[[redirects]]
+  from = "/"
+  to = "/cyco-pose-vol2-ethereal.html"
+  status = 200
+
+[[redirects]]
+  from = "/admin"
+  to = "/index.html"
+  status = 200
+
+# Next.js static files - serve from _next/static
+[[redirects]]
+  from = "/_next/static/*"
+  to = "/_next/static/:splat"
+  status = 200
+
+# Public files
+[[redirects]]
+  from = "/public/*"
+  to = "/public/:splat"
+  status = 200

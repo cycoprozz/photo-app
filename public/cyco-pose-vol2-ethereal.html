@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, initial-scale=1.0">
+    <title>CyCO POSE VOL. 2 - ETHEREAL</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+    <style>
+        /* Font Definitions */
+        @font-face {
+            font-family: 'NotoSerifCJKsc';
+            src: url('https://assets-persist.lovart.ai/agent-static-assets/NotoSerifCJKsc-Regular.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'NotoSerifCJKsc';
+            src: url('https://assets-persist.lovart.ai/agent-static-assets/NotoSerifCJKsc-Bold.otf') format('opentype');
+            font-weight: bold;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'AlibabaSans';
+            src: url('https://assets-persist.lovart.ai/agent-static-assets/AlibabaSans-Regular.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'AlibabaSans';
+            src: url('https://assets-persist.lovart.ai/agent-static-assets/AlibabaSans-Bold.otf') format('opentype');
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        /* Base Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1920px;
+            font-family: 'NotoSerifCJKsc', serif;
+            background-color: #ffffff;
+            color: #000;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Utility Classes */
+        .text-center { text-align: center; }
+        .uppercase { text-transform: uppercase; }
+        .flex-center { display: flex; justify-content: center; align-items: center; }
+        .serif-italic { font-style: italic; }
+        .sans-serif { font-family: 'AlibabaSans', sans-serif; }
+
+        /* Cover Section */
+        .cover-section {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background: #fff;
+        }
+
+        .cover-title {
+            font-size: 110pt;
+            font-weight: bold;
+            letter-spacing: 6px;
+            color: #000;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .cover-volume {
+            font-family: 'AlibabaSans', sans-serif;
+            font-size: 24pt;
+            letter-spacing: 4px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .decorative-line {
+            width: 280px;
+            height: 1px;
+            background-color: #000;
+            margin: 0 auto 40px;
+        }
+
+        .theme-title {
+            font-size: 80pt;
+            font-style: italic;
+            color: #333;
+            margin-bottom: 15px;
+            font-family: 'NotoSerifCJKsc', serif;
+        }
+
+        .subtitle {
+            font-size: 32pt;
+            letter-spacing: 2px;
+            margin-bottom: 60px;
+            color: #111;
+        }
+
+        .issue-line {
+            font-family: 'AlibabaSans', sans-serif;
+            font-size: 18pt;
+            letter-spacing: 3px;
+            color: #444;
+            margin-bottom: 15px;
+        }
+
+        .locations {
+            font-family: 'AlibabaSans', sans-serif;
+            font-size: 16pt;
+            letter-spacing: 2px;
+            color: #666;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-text {
+            font-size: 12pt;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            font-family: 'AlibabaSans', sans-serif;
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 60px;
+            background-color: #000;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+            40% { transform: translate(-50%, -10px); }
+            60% { transform: translate(-50%, -5px); }
+        }
+
+        /* Editorial Intro */
+        .editorial-intro {
+            padding: 100px 60px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .vision-title {
+            font-size: 32pt;
+            letter-spacing: 4px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .vision-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background-color: #000;
+        }
+
+        .vision-body {
+            max-width: 850px;
+            font-size: 24pt;
+            font-style: italic;
+            line-height: 2.0;
+            text-align: center;
+            color: #444;
+        }
+
+        /* Image Sections */
+        .image-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background-color: #fff;
+            margin: 60px 0;
+            overflow: hidden;
+        }
+
+        .editorial-img {
+            width: 100%;
+            object-fit: contain;
+            transition: transform 0.8s ease;
+        }
+
+        .editorial-img:hover {
+            transform: scale(1.02);
+        }
+
+        .img-1 { max-height: 750px; }
+        .img-2 { max-height: 850px; }
+        .img-3 { max-height: 750px; }
+
+        .poetic-text {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 40px;
+            font-size: 26pt;
+            font-style: italic;
+            line-height: 2.2;
+            color: #555;
+            text-align: center;
+        }
+
+        /* Manifesto */
+        .manifesto-section {
+            background-color: #FAFAFA;
+            padding: 120px 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .manifesto-title {
+            font-size: 36pt;
+            letter-spacing: 3px;
+            margin-bottom: 50px;
+            color: #000;
+        }
+
+        .manifesto-body {
+            max-width: 900px;
+            font-size: 22pt;
+            line-height: 2.0;
+            text-align: center;
+            color: #333;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(to bottom, #ffffff 0%, #FFF5F7 100%);
+            padding: 120px 80px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .cta-title {
+            font-size: 52pt;
+            font-weight: normal;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .cta-flourish {
+            width: 100px;
+            height: 1px;
+            background: #000;
+            margin: 20px auto;
+            position: relative;
+        }
+        .cta-flourish::before, .cta-flourish::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #000;
+        }
+        .cta-flourish::before { left: 0; }
+        .cta-flourish::after { right: 0; }
+
+        .cta-subtitle {
+            font-family: 'AlibabaSans', sans-serif;
+            font-size: 26pt;
+            margin-top: 20px;
+            margin-bottom: 50px;
+            color: #333;
+            letter-spacing: 1px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            font-family: 'AlibabaSans', sans-serif;
+            font-size: 20pt;
+            padding: 24px 60px;
+            border: 2px solid #000;
+            color: #000;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .cta-btn:hover {
+            background-color: #000;
+            color: #fff;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 100px 80px 140px;
+            background: #fff;
+            box-sizing: border-box;
+        }
+
+        .contact-title {
+            font-size: 32pt;
+            text-align: center;
+            letter-spacing: 4px;
+            margin-bottom: 80px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .contact-col {
+            padding: 20px;
+        }
+        
+        .contact-col.left {
+            text-align: right;
+            border-right: 1px solid #eee;
+            padding-right: 80px;
+        }
+        
+        .contact-col.right {
+            text-align: left;
+            padding-left: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .role-title {
+            font-family: 'AlibabaSans', sans-serif;
+            font-size: 14pt;
+            letter-spacing: 2px;
+            color: #666;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .person-name {
+            font-size: 28pt;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            font-family: 'AlibabaSans', sans-serif;
+            font-size: 16pt;
+            color: #000;
+            margin-bottom: 50px;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s;
+        }
+        
+        .social-link:hover {
+            border-bottom-color: #000;
+        }
+
+        .social-link i {
+            margin-right: 8px;
+        }
+
+        .contact-phone {
+            font-size: 32pt;
+            color: #000;
+            margin-bottom: 15px;
+            display: block;
+            font-family: 'NotoSerifCJKsc', serif;
+        }
+
+        .contact-email {
+            font-family: 'AlibabaSans', sans-serif;
+            font-size: 20pt;
+            color: #333;
+            margin-bottom: 30px;
+            display: block;
+        }
+
+        .booking-note {
+            font-style: italic;
+            font-size: 18pt;
+            color: #666;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #000;
+            color: #fff;
+            padding: 80px 80px;
+            text-align: center;
+        }
+
+        .footer-brand {
+            font-size: 24pt;
+            letter-spacing: 4px;
+            margin-bottom: 40px;
+            font-weight: bold;
+        }
+
+        .footer-credits {
+            font-family: 'AlibabaSans', sans-serif;
+            font-size: 14pt;
+            line-height: 2.0;
+            color: rgba(255,255,255,0.7);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .footer-copy {
+            margin-top: 40px;
+            font-family: 'AlibabaSans', sans-serif;
+            font-size: 14pt;
+            color: rgba(255,255,255,0.5);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cover Section -->
+    <section class="cover-section">
+        <div class="cover-title">CyCO POSE</div>
+        <div class="cover-volume uppercase">Vol. 2</div>
+        <div class="decorative-line"></div>
+        <div class="theme-title">Ethereal</div>
+        <div class="subtitle">BEYOND THE VEIL</div>
+        
+        <div style="height: 60px;"></div>
+
+        <div class="issue-line uppercase">The Ethereal Issue • Vol. 2 • 2026</div>
+        <div class="locations uppercase">Atlanta • Paris • New York • Tokyo</div>
+
+        <div class="scroll-indicator">
+            <div class="scroll-text uppercase">Scroll</div>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Editorial Introduction -->
+    <section class="editorial-intro">
+        <h2 class="vision-title uppercase">The Vision</h2>
+        <p class="vision-body">
+            "In the space between dream and reality, three visions emerge. Black femininity reimagined through fantasy, adorned in glitter and grace, existing in worlds that bend to their beauty. This is not escape—this is transcendence. Welcome to CyCO POSE Vol. 2."
+        </p>
+    </section>
+
+    <!-- Image 1 -->
+    <section class="image-container">
+        <img src="https://a.lovart.ai/artifacts/user/WYynqYeuPh3zpzth.png" alt="Desert Fantasy" class="editorial-img img-1">
+    </section>
+
+    <div class="poetic-text">
+        "She looks to horizons that don't exist yet. Desert winds carry her name. Between earth and sky, she becomes myth. In this otherworld, she is both dreamer and dream."
+    </div>
+
+    <!-- Image 2 -->
+    <section class="image-container">
+        <img src="https://a.lovart.ai/artifacts/user/MHvrEwbbvm2ELt1H.png" alt="Forest Enchantment" class="editorial-img img-2">
+    </section>
+
+    <div class="poetic-text">
+        "In the forest of becoming, she blooms. Glitter catches light like morning dew. Vines frame her face—nature bows to her presence. She is the enchantment we've been searching for."
+    </div>
+
+    <!-- Image 3 -->
+    <section class="image-container">
+        <img src="https://a.lovart.ai/artifacts/user/p0QbjCC3or3ZvWFd.png" alt="Intimate Duality" class="editorial-img img-3">
+    </section>
+
+    <div class="poetic-text">
+        "Two souls. One vision. Intimacy as art. They hold each other like they hold the world—gently, fiercely, eternally. This is love as fantasy. This is fantasy as truth."
+    </div>
+
+    <!-- Manifesto -->
+    <section class="manifesto-section">
+        <h2 class="manifesto-title uppercase">The Ethereal Manifesto</h2>
+        <p class="manifesto-body">
+            "Beauty is not bound by the visible. It exists in glitter and shadow, in touch and gaze, in the space between what is and what could be. This is the ethereal—where Black femininity becomes fantasy, and fantasy becomes truth. This is CyCO POSE."
+        </p>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2 class="cta-title">Let's Create Magic Together</h2>
+        <div class="cta-flourish"></div>
+        <p class="cta-subtitle uppercase">Book Your Editorial Experience</p>
+        <a href="/cdn-cgi/l/email-protection#afdbcaccc7dcdbd6c3cacdd6c5c0c9c9ddcaefc8c2cec6c381ccc0c2" class="cta-btn">Get In Touch</a>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <h2 class="contact-title uppercase">Connect</h2>
+        
+        <div class="contact-grid">
+            <div class="contact-col left">
+                <div class="role-title">Photographer & Creative Director</div>
+                <div class="person-name">Joffre Britini</div>
+                <a href="https://www.instagram.com/cycoprozz?igsh=dGhyZG8xNzkwdjE5&utm_source=qr" target="_blank" class="social-link">
+                    <i class="ri-instagram-line"></i> @cycoprozz
+                </a>
+
+                <div class="role-title" style="margin-top: 20px;">Styling • Hair • Makeup</div>
+                <div class="person-name">Octavia</div>
+                <a href="https://www.instagram.com/latricetay?igsh=cTJobWx2a2Fobnhx" target="_blank" class="social-link" style="margin-bottom: 0;">
+                    <i class="ri-instagram-line"></i> @latricetay
+                </a>
+            </div>
+
+            <div class="contact-col right">
+                <div class="role-title">Inquiries</div>
+                <a href="tel:4706526060" class="contact-phone">470.652.6060</a>
+                <a href="/cdn-cgi/l/email-protection#fe8a9b9d968d8a87929b9c87949198988c9bbe99939f9792d09d9193" class="contact-email"><span class="__cf_email__" data-cfemail="196d7c7a716a6d60757c7b6073767f7f6b7c597e74787075377a7674">[email&#160;protected]</span></a>
+                <div class="booking-note">Available for bookings worldwide</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-brand">CyCO POSE VOL. 2 © 2026</div>
+        <div class="footer-credits">
+            Photographer: Joffre Britini • Creative Direction: Joffre Britini<br>
+            Styling/Hair/Makeup: Octavia • Words: CyCO Pro • Design: Gurl Mobb Museum
+        </div>
+        <div class="footer-copy">All Rights Reserved.</div>
+    </footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>
